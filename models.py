@@ -72,11 +72,3 @@ class BlockConfig( models.Model ):
 # NOTE: Since we won't accumulate logged data, we don't care too much about
 # splitting place to a separate table, to keep columns shorter in this one.
 # It would give us work, and gain nothing.
-#
-class YrCache( models.Model ):
-	place		= models.CharField( max_length=255, blank=False, null=False )
-	updated		= models.DateTimeField( auto_now_add=True, blank=False, null=False)
-	hour		= models.CharField( max_length=255, blank=False, null=False )
-	thing		= models.CharField( max_length=255, blank=False, null=False )
-	value		= models.CharField( max_length=255, blank=False, null=False )
-

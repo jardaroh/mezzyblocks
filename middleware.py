@@ -9,7 +9,7 @@ from mezzanine.pages.models import Page
 from mezzanine.pages.views import page as page_view
 from mezzanine.utils.urls import path_to_slug
 
-from blocks.models import Block
+from mezzyblocks.models import Block
 
 # A template context middleware that will get and append any appropriate
 # blocks to the template context
@@ -18,7 +18,7 @@ class BlocksTemplateContextMiddleware(object):
 	ifblocks = False
 
 	def process_block(self, block):
-		module = __import__( "blocks.blocktypes." + block.blocktype.path, fromlist='block_context_processor')
+		module = __import__( "mezzyblocks.blocktypes." + block.blocktype.path, fromlist='block_context_processor')
 		html = module.block_context_processor(block)
 		return html
 

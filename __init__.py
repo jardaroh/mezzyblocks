@@ -3,7 +3,7 @@ import pkgutil
 from django.db.models.signals import post_syncdb
 import models
 
-from blocks import blocktypes
+from mezzyblocks import blocktypes
 from models import BlockType, BlockTypeSetting
 
 def blocktypes_setup( sender, **kwargs ):
@@ -22,7 +22,9 @@ def blocktypes_setup( sender, **kwargs ):
 			bt.save()
 
 		# Get the settings from the blocktype
-		btmod = __import__( "blocks.blocktypes." + bt.name, fromlist='block_settings' )
+		btmod = __import__( "mezzyblocks.blocktypes." + bt.name, fromlist='block_settings' )
+
+		print dir(btmod.block_settings)
 
 		# Loop over them, check if they're in DB, add otherwise.
 		for btname, btfname, default in btmod.block_settings:

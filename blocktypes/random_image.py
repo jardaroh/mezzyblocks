@@ -6,7 +6,7 @@ from django.template.loader import get_template, render_to_string
 from mezzanine.conf import settings
 from mezzanine.galleries.models import Gallery
 
-from blocks.models import BlockConfig, BlockTypeSetting
+from mezzyblocks.models import BlockConfig, BlockTypeSetting
 
 # Config options available for this block, name and friendly name.
 # Defined here, so they'll be auto-included in database after syncdb.
@@ -14,8 +14,8 @@ from blocks.models import BlockConfig, BlockTypeSetting
 # NOTE: When changing set of available settings, remember syncdb.
 block_settings = (
 	(
-		'gallery', 'Gallery', "RandomGallery"
-	)
+		'gallery', 'Gallery', "RandomGallery",
+	),
 )
 
 

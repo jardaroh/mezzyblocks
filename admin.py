@@ -1,4 +1,4 @@
-from blocks.models import Block, BlockPosition, BlockType, BlockConfig, BlockTypeSetting
+from mezzyblocks.models import Block, BlockPosition, BlockType, BlockConfig, BlockTypeSetting
 from django.db.models.query import QuerySet
 from django.contrib import admin
 
