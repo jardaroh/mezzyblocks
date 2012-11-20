@@ -1,0 +1,7 @@
+<div class="a2gcms_block_position" id="{{ position }}">
+	{% if blocks %}
+        {% for block in blocks %}
+            {{block.html|safe}}
+		{% endfor %}
+    {% endif %}
+</div>
