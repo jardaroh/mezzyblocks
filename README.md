@@ -33,4 +33,9 @@ A block requires 1 function called 'block_context_processor' taking one argument
 'block_context_processor' must return an html string, you can optionally make use of Django's template layer to render your block, import 'render_to_string' from 'django.template.loader'. Make use of it as you otherwise would at the end of a view function.
 
 1. create a new python file in the 'mezzyblocks/blocktypes' folder ending with .py
-2.
+2. import whatever modules you need for your block to do it's job at the top of the file
+3. optionally 'from django.template.loader import render_to_string' if you want to use a template render for your block
+4. create a function 'block_context_processor' and give it one argument, like so 'block_context_processor(block):'
+5. at the end of the function, return any kind of string, /* This string could for example be html */
+
+You are free to do any type of logic you need within this function, like getting whatever pages you want from the Mezzanine CMS and list links to them or display excerpts for that matter. What you do within the block is entirely up to you.
