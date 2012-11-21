@@ -39,3 +39,31 @@ A block requires 1 function called 'block_context_processor' taking one argument
 5. at the end of the function, return any kind of string, /* This string could for example be html */
 
 You are free to do any type of logic you need within this function, like getting whatever pages you want from the Mezzanine CMS and list links to them or display excerpts for that matter. What you do within the block is entirely up to you.
+
+#### example
+	from django.template.loader import render_to_string
+	
+	def block_context_processor(block):
+		c = Context(
+			{
+				'title': "My First Block",
+				'body': "This block is my very first block love"
+			}
+		)
+		#Return an html string back to the Block Middleware
+		html = render_to_string('random_image.html', c)
+		return html
+
+
+### Block settings
+As things are, block settings are available, if only a litle contrived.
+You need to define a 'block_settings' variable that is to be used, 'block_settings' must be a tuple of tuples. each inner tuple need three values, 1st the "machine name", 2nd is the "friendly name" and lastly comes the "standard value".
+
+When you have defined your settings, you must then run a 'manage.py syncdb' to make it/them available to your blocks.
+
+#### example
+	block_settings = (
+		(
+			'gallery', 'Gallery', "RandomGallery",
+		),
+	)
