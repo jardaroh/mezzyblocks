@@ -9,7 +9,7 @@ def block_position( context, position ):
 	try:
 		blocks = context['request'].blocks
 		for block in blocks:
-			if block.position.name == position: usedblocks.append( block )
+			if block.position.name == str(position): usedblocks.append( block )
 	except AttributeError:
 		# No blocks found, no big deal.
 		pass
