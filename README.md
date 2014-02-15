@@ -3,6 +3,9 @@
 
 Blocks for Django aims to give a centralized functionality layer for building easy to use "blocks/modules" for websited using Mezzanine.
 
+## Warning!
+### Does not function with later versions of Mezzanine
+
 
 ## Requirements
 1. Django
@@ -42,7 +45,7 @@ You are free to do any type of logic you need within this function, like getting
 
 #### example
 	from django.template.loader import render_to_string
-	
+
 	def block_context_processor(block):
 		c = Context(
 			{
